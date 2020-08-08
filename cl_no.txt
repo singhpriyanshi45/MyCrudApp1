@@ -1,0 +1,767 @@
+CRUD Operations on All DataBases (MySQL,MongoDB,SQLServer,Oracle)
+-----------------------------------------------------------------
+1) install MySQL DataBase.
+
+    Ex.
+        mysql-essential-5.2.3-falcon-alpha-win32.msi
+
+2) create the database in MySQL.
+
+Queries:
+    Default Password : root
+
+    > show databases;
+        - it will show available databases.
+
+    > create schema crud;
+        - crud database will be created.
+
+    > use crud;
+        - we can switch to crud database.
+
+    > create table products(p_id integer,p_name varchar(20),p_cost integer);
+        - automatically products table will be created.
+
+    > insert into products values(111,'p_one',10000);
+        - automatically we can insert the record into database.
+
+    > select * from products;
+        - we can fetch the records from database.
+
+**********************************************
+host     :   localhost
+
+user     :   root
+
+password :   root
+
+database :   crud
+
+table    :   products
+********************************************
+
+
+
+
+3) create the directory
+
+    Ex.
+        MySQL_CRUD
+
+4) switch to MySQL_CRUD
+
+    > cd MySQL_CRUD
+
+
+5) download the node modules
+
+    => mysql
+
+    => cors
+
+    => body-parser
+
+    => express
+
+    - express module used to develop the rest apis.
+            GET
+            POST
+            PUT
+            DELETE
+            HEAD
+            ----
+            ----
+            ----
+    - cors module used to enable the ports communication.
+
+    - body-parser module used to read the client data.
+
+    - mysql module used to interact with the mysql database.
+
+    > yarn add mysql cors body-parser express --save
+
+
+
+6) develop the rest apis by using NodeJS
+
+    => GET     (Fetch the records from database)
+
+    => POST    (Insert the record into database)
+
+    => PUT     (Update the record in database)
+
+    => DELETE  (Delete the record from database)
+
+**************************************
+MySQL_CRUD
+         config
+              db_properties.js
+              db_connection.js
+
+         fetch
+            fetch.js
+
+         insert
+            insert.js
+
+         update
+            update.js
+
+         delete
+            delete.js
+
+        server.js
+***************************************
+
+    - "db_properties.js" file used to maintain the database details.
+    - "db_connection.js" file used to create and return the connection object.
+    - "fetch.js" file used to create the GET Request. (fetch the data from products table).
+    - "insert.js" file used to create the POST Request (insert the record into products table).
+    - "update.js" file used to create the PUT Request (update the record into products table).
+    - "delete.js" file used to create the DELETE Request (delete the record from products table).
+
+
+7) start the node server
+
+    > cd MySQL_CRUD
+
+    > node server
+
+8) test the rest apis by using Postman.
+
+    => http://localhost:8080/fetch          (GET)
+
+    => http://localhost:8080/insert         (POST)
+
+    => http://localhost:8080/update         (PUT)
+
+    => http://localhost:8080/delete         (DELETE)
+
+
+MongoDB CRUD Operations
+-----------------------
+1) create the directory
+
+    MongoDB_CRUD
+
+2) switch to MongoDB_CRUD
+
+    > cd MongoDB_CRUD
+
+3) create the database
+
+    > mongod
+        - start the server
+    
+    > mongo
+        - we will connect to server 
+
+    > use crud;
+        - automatically crud database will be created.
+
+    > db.createCollection("products");
+        - products collection will be created
+
+    > db.products.insert({"p_id":111,
+                          "p_name":"p_one",
+                          "p_cost":10000});
+        - we can insert object into products collection.
+
+    > db.products.find();
+        - we can fetch the data from products collection.
+
+********************************************
+host   :   localhost
+
+port   :   27017
+
+protocol  :  mongodb
+
+database  :   crud
+
+collection  :   products
+********************************************
+
+
+4) download the node modules
+
+    => express
+
+    => mongodb@2.2.32
+
+    => cors
+
+    => body-parser
+
+
+    - "express" module used to develop the rest apis.
+            GET
+            POST
+            PUT
+            DELETE
+
+    - "mongodb@2.2.32" module used to interact with the mongodb database.
+
+    - "cors" module used to enable the ports communication.
+
+    - "body-parser" module used to read the client data.
+
+    > yarn add express mongodb@2.2.32 cors body-parser --save
+
+
+5) develop the rest apis by using NodeJS
+
+*************************************
+MongoDB_CRUD
+           fetch
+               fetch.js
+           insert
+               insert.js
+           update
+               update.js
+           delete
+               delete.js
+           server.js
+*************************************
+
+    -  fetch.js file used to create the GET Request (fetch the data from products collection)
+
+    - insert.js file used to create the POST Request  (insert the record into products collection)
+
+    - update.js file used to create the PUT Request   (update the record present in products collection)
+
+    - delete.js file used to create the DELETE Request (delete the record from products collection)
+
+    - server.js file used to collabrate the modules.
+
+6) start the server
+
+    > node server
+
+
+7) test the rest apis by using Postman
+
+    => http://localhost:8080/fetch   (GET)
+
+    => http://localhost:8080/insert  (POST)
+
+    => http://localhost:8080/update  (PUT)
+
+    => http://localhost:8080/delete  (DELETE)
+
+
+
+
+SQLServer CRUD Operations
+-------------------------
+1) install SQLServer
+    
+    Ex.
+        SQL Server 2014 Management Studio
+
+2) create the database
+
+*******************************************
+user     :   sa
+
+password :   123
+
+database :   crud
+
+table    :   products
+******************************************
+
+
+
+3) create the directory  (MSSQL_CRUD)
+
+
+4) switch to MSSQL_CRUD
+
+    > cd MSSQL_CRUD
+
+5) download node modules
+
+        => express
+
+        => cors
+
+        => body-parser
+
+        => mssql@6.0.1
+
+    > yarn add express cors body-parser mssql@6.0.1 --save
+
+6) create the rest apis
+
+    ***********************************
+    MSSQL_CRUD
+            config
+                db_properties.js
+            fetch
+                fetch.js
+            insert
+                insert.js
+            update
+                update.js
+            delete
+                delete.js
+            server.js
+    ***********************************
+
+7) start the server
+
+    > MSSQL_CRUD
+
+    > node server
+
+8) test the following rest apis by using Postman
+
+    => http://localhost:8080/fetch    (GET)
+
+    => http://localhost:8080/insert   (POST)
+
+    => http://localhost:8080/update   (PUT)
+
+    => http://localhost:8080/delete   (DELETE)  
+
+
+****************************************************
+Intrgration CRUD Operations to React Applications
+
+1) create the react application
+
+    > create-react-app integration-app
+
+2) switch to react application
+
+    > cd integration-app
+
+3) download the react modules
+
+    => redux
+
+    => react-redux
+
+    => redux-thunk
+
+    => axios
+
+    => @material-ui/core
+
+    => @material-ui/icons
+
+    => bootstrap
+
+    => react-bootstrap
+
+
+    - redux is used to create the redux architecture
+
+    - react-redux used to integrate the redux architecture to react application
+
+    - redux-thunk library used to moniter the actions (FETCH,INSERT,UPDATE,DELETE).
+
+    - axios module used to make the asynchronous calls
+
+    - @material-ui/core & @material-ui/icons used to implement the material ui in react application
+
+    - bootstrap & react-bootstrap used to apply few design related things
+
+    > yarn add redux react-redux redux-thunk axios @material-ui/core @material-ui/icons bootstrap react-bootstrap --save
+
+
+4) create the Fetch module
+
+    => create the action
+
+    ***************************************
+    integration-app
+                 src
+                   actions
+                      actions.js
+    **************************************
+actions.js
+----------
+
+// connect to server   (axios)
+
+// receive the response(posRes) from "node server"
+
+// send response to "reducer"
+
+
+import axios from "axios";
+
+export const getProducts = ()=>{
+    return (dispatch)=>{
+        return axios.get("http://localhost:8080/fetch")
+                    .then((posRes)=>{
+                       dispatch( fun_one(posRes.data) );
+                    },(errRes)=>{
+                console.log(errRes);
+        });
+    }
+};
+
+export const fun_one = (records)=>{
+    return {type:"FETCH" , value:records};
+}
+
+    => create the reducer
+
+    *********************************************
+    integration-app
+                  src
+                    reducer
+                        reducer.js
+    ********************************************
+
+
+    reducer.js
+    ----------
+
+    const initialState = {
+        data : []
+    };
+    const reducer = (state=initialState,action)=>{
+        console.log(action.type);      //FETCH
+        console.log(action.value);     //records
+        switch(action.type){
+            case "FETCH":
+                state.data = [];
+                return{
+                    ...state,
+                    data : state.data.concat(action.value)
+                }
+        }
+        return state;
+    };
+    export default reducer;
+
+
+    index.js
+    --------
+
+    import { createStore,applyMiddleware } from "redux";
+    import { Provider } from "react-redux";
+    import reducer from "./reducer/reducer";
+    import thunk from "redux-thunk";
+
+    const store = createStore(reducer, applyMiddleware(thunk));
+
+    create the App Component
+    ------------------------
+    import React,{ Component } from "react";
+    import { connect } from "react-redux";
+    import * as actions from "./actions/actions";
+    class App extends React.Component{
+        componentDidMount(){
+            this.props.getProducts();
+        };
+        render(){
+            return(
+                <div>
+                    {JSON.stringify(this.props.data)}
+                </div>
+            )
+        };
+    };
+    const receive = (state)=>{
+        return{
+            data : state.data
+        }
+    };
+    const send = (dispatch)=>{
+        return{
+            getProducts : ()=>{ actions.getProducts() }
+        }
+    };
+    export default connect(receive,send)(App);
+
+
+    Table
+    -----
+    import Container from "react-bootstrap/Container"; 
+    import Table from "react-bootstrap/Table";
+    import Button from "react-bootstrap/Button";
+    import Modal from "react-bootstrap/Modal";
+    import Form from "react-bootstrap/Form";
+
+    render(){
+        return(
+            <Container fluid className="mt-5">
+                 <Button className="float-right"
+                         onClick={()=>{ this.showPopup() }}>Add <i className="fas fa-plus"></i></Button>
+            
+                <Table bordered
+                       variant="dark"
+                       size="sm"
+                       hover
+                       striped
+                       className="text-center">
+                    <thead>
+                        <tr>
+                            <th>SNO</th>
+                            <th>P_ID</th>
+                            <th>P_NAME</th>
+                            <th>P_COST</th>
+                            <th>EDIT</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.props.data.map((element,index)=>(
+                            <tr>
+                                <td>{index+1}</td>
+                                <td>{element.p_id}</td>
+                                <td>${element.p_name}</td>
+                                <td>${element.p_cost}</td>
+                                <td><i className="fas fa-edit"></i></td>
+                                <td><i className="fas fa-trash-alt"></td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            </Container>
+
+
+        )
+    };
+
+Insert.Update/Delete Module
+---------------------------
+
+********************************************
+actions
+    actions.js
+*******************************************
+
+
+*******************************************
+reducer
+    reducer.js
+*******************************************
+
+
+*******************************************
+src
+   App.js
+*******************************************
+
+
+implementation of Auth System
+------------------------------
+
+1) create the login_details table in MySQL DataBase.
+
+
+2) create the rest api by using NodeJS.
+
+*********************************************
+MySQL_CRUD
+         login
+            login.js
+*********************************************
+
+
+3) start the node server
+
+> cd MySQL_CRUD
+
+> node server
+
+
+4) test the rest api by using Postman
+
+    => http://localhost:8080/login   (POST)
+
+
+5) switch to react application
+
+    > cd integration-app
+
+6) download react-router-dom module
+
+    - "react-router-dom" module used to implement the single page applications
+
+    - we will download react-router-dom module by using yarn tool
+
+    > yarn add react-router-dom --save
+
+7) implement the single page application
+
+    ***************************************************
+    integration-app
+                  src
+                    Main.js
+
+                    Login.js
+
+                    App.js
+    ***************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
